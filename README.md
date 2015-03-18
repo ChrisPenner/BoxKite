@@ -4,6 +4,9 @@ A very simple blog framework that emphasizes managing posts in a plain-text
 directory structure. Runs on Google App Engine, but can also be exported as a
 static site.
 
+For an example of a site built with BoxKite, see my personal blog here:
+http://chrispenner.ca
+
 Installation
 ------------
 Simply clone this repo into the place you'd like to work on it:
