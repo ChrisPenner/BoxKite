@@ -24,7 +24,7 @@ beacon = 'BK'
 # ==============================
 
 # Choose whether to use categories and tags
-show_categories = False
+show_categories = True
 show_tags = True
 
 # ==============================
