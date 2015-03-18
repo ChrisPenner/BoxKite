@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <head profile="http://www.w3.org/2005/10/profile">
+            <meta charset="UTF-8">
+            <meta name="description" content="{{config.site_description}}">
+            <meta name="author" content="{{config.author}}">
+            <meta name=viewport content="width=device-width, initial-scale=1">
+            <title>{% block title %}{% endblock title %}</title>
+
+            <!-- Add additional webfonts here -->
+            <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+            <link rel="alternative" type="application/rss+xml" title="{{config.site_title}} RSS Feed" href="/feed" />
+            <link rel="icon" type="image/png" href="/images/favicon.png">
+            <link rel="stylesheet" href="/css/style.css">
+            <!-- Twitter and Facebook metadata will be filled in here: -->
+            {% block metatags %} {% endblock metatags%}
+        </head>
+        <body>
+            <nav>
+                <a id="beacon" href="/">{{config.beacon|safe}}</a>
+                {% block navigation %}{% endblock navigation %} 
+            </nav>
+
+            <div id="page">
+                {% block content %}{% endblock content %}
+            </div>
+
+            <footer>
+                &copy; {{config.author}} - <a href="/feed">RSS</a>
+            </footer>
+
+            {% if config.facebook_share_buttons %}
+                <!--Facebook Like/Share code-->
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+        {% endif %}
+    </body>
+</html>

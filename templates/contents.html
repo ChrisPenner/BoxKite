@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{config.site_title}}{% endblock title %}
+{% block content %}
+
+    <section class="table-of-contents">
+        <h1>{{heading|title}}</h1>
+        {% if config.show_categories or config.show_tags %}
+            <div class="categorical">
+                {% if config.show_categories and categories|length > 0 %}
+                    <br>
+                    <span class="categories">
+                        Categories<br>
+                        {% for c in categories %}
+                            <a href="/category/{{c}}">{{c|capitalize}},</a>
+                        {% endfor %}
+                    </span>
+                {% endif %}
+                {% if config.show_tags and tags|length > 0 %}
+                    <br>
+                    <span class="tags">
+                        Tags<br>
+                        {% for t in tags %}
+                            <a href="/tag/{{t}}">{{t|capitalize}},</a>
+                        {% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+        {% endif %}
+        <ul>
+            {% for post in blog_posts %} 
+                <li><a href="/post/{{post.name}}">{{post.title}}
+                        <span class="date">{{post.date}}</span></a></li>
+            {% endfor %}
+        </ul>
+    </section>
+
+{% endblock content %}
