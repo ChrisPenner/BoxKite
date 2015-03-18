@@ -43,6 +43,8 @@ enter it as your application name in ```app.yaml```. You'll also want to set
 got a custom domain. If you want to set up a custom domain, follow Google's
 instructions here: https://cloud.google.com/appengine/docs/domain
 
+Now you should be able to deploy it straight from GoogleAppEngineLauncher.
+
 If instead you'd prefer to upload your blog as a static set of files, see
 **Rendering to Static Site**.
 
@@ -69,8 +71,16 @@ Post Format
 ```
 title: My Title
 author: My Author
+# The date will be parsed and will be used for sorting posts.
 date: August 2nd 2014
-tags: awesome, words, here,
+description: This post is about posting!
+# NOTE tags and categories are space-delimited, and should use web-safe
+# characters
+tags: awesome words here
+categories: weekly-gazette Wednesday-Writing
+# The image listed in metadata is used as the header graphic for that post.
+# For images placed in the /content/images/ directory, use just the filename
+image: boxkite.png
 
 ^ Leave one blank line between metatags and content
 <markdown formatted content goes here>
@@ -85,6 +95,10 @@ store unfinished work there. Images are placed in ```content/images```
 and are accessed as ``` <img src="/images/mypic.png"> ``` **Note** that's
 ```/images```, not ```/content/images```. If you follow this structure,
 everything should pretty much just work.
+
+Basically, just make new posts in /content/posts (use web-safe file names, no spaces or weird
+symbols) and leave them there. Any changes made to the files will update the
+site next time it's deployed.
 
 Anything stored under the ```content/other``` folder will be uploaded and will
 be available online. For example ```content/other/page.html``` is available at
