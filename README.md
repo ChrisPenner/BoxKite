@@ -94,7 +94,7 @@ BoxKite is just a starting place, customizing it is actually a great way to
 learn a bit about web-development. It provides a foundation, but everything you
 build on top will be done using basic web technologies like js, css, and html.
 
-Unlike other systems (e.g. Wordpress) you control everything with basic html
+Unlike other systems (e.g. Wordpress) you controll everything with basic html
 and css and it's easy to change anything you like. Feel free to edit the css,
 edit the html templates, etc.
 
@@ -134,7 +134,7 @@ use_disqus_comments = False
 disqus_shortname = "disqus-shortname"
 ```
 
-Other forms of customization:
+Other forms of customization
 -----------------------------
 ### CSS
 ALL of the css for BoxKite is stored in ```css/style.scss```. It's written in
