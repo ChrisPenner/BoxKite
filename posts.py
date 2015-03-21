@@ -16,26 +16,17 @@ class Post(object):
     Holds all information regarding an individual blog post.
     """
 
-    def __init__(self, title='', name='', content='', date='', author='',
-                 description='', tags=set(), categories=set(), **kwargs
-                 ):
-        date, sort_date, pub_date = parse_date(date)
-        self.date = date
-        self.sort_date = sort_date
-        self.pub_date = pub_date
-        self.title = title
-        self.name = name
-        self.author = author
-        self.content = content
-        self.description = description
-        self.link = config.site_root + "/post/" + name
-        self.tags = tags
-        self.categories = categories
-        allowed_values = ('platforms', 'language', 'state', 'sites',
-                          'type', 'program', 'links', 'image',)
-        for key, value in kwargs.iteritems():
-            if key in allowed_values:
-                setattr(self, key, value)
+    def __init__(self, metadata):
+        parsed_dates = parse_date(metadata.get('date', ''))
+        metadata['date'] = parsed_dates[0]
+        metadata['sort_date'] = parsed_dates[1]
+        metadata['pub_date'] = parsed_dates[2]
+        link = config.site_root + "/post/" + metadata.get('name', '')
+        metadata['link'] = link
+        metadata['tags'] = metadata.get('tags', set())
+        metadata['categories'] = metadata.get('categories', set())
+        for key, value in metadata.iteritems():
+            setattr(self, key, value)
 
 
 def init():
@@ -73,7 +64,7 @@ def init():
             post_info['content'] = content
 
             # add all retrieved content to post
-            post = Post(**post_info)
+            post = Post(post_info)
             add_post(post)
 
 

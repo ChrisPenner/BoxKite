@@ -81,6 +81,10 @@ categories: weekly-gazette Wednesday-Writing
 # The image listed in metadata is used as the header graphic for that post.
 # For images placed in the /content/images/ directory, use just the filename
 image: boxkite.png
+# You can also define arbitrary metadata using any key that's a valid python
+# variable name (no spaces or strange symbols). These can then be referenced in
+# the jinja templates as {{post.key}}
+key: value
 
 ^ Leave one blank line between metatags and content
 <markdown formatted content goes here>
